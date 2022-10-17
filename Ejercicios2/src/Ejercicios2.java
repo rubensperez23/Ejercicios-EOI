@@ -5,6 +5,62 @@ import java.util.Scanner;
 
 public class Ejercicios2 {
 	
+	public static void buscarSiguienteProfesor() {
+		Scanner sc = new Scanner(System.in);
+		String cadena="w Esta es una cadena más larga que la Anterior, hola adiós hola hola";
+		boolean salir = false;
+		int posicionEncontrada = -1;
+		// Pista: contains, indexOf, lastIndexOf
+		System.out.println("Introduzca la cadena a buscar: ");
+		String cadenaBuscada = sc.nextLine();
+		while(!salir) {
+			posicionEncontrada = cadena.toLowerCase().indexOf(cadenaBuscada.toLowerCase(), posicionEncontrada+1);
+			if(posicionEncontrada!=-1) {  // Encuentro la cadena
+				System.out.println(cadena.substring(posicionEncontrada));
+				System.out.println("¿Buscar siguiente? (s/n): ");
+				String respuesta = sc.nextLine();
+				if(respuesta.toLowerCase().equals("n")) {
+					salir = true;
+				}
+			} else {
+				System.out.println("No se encuentran más ocurrencias de la cadena");
+				salir = true;
+			}			
+		}
+		sc.close();
+	}
+	
+	public static void buscarSiguienteYo() {
+		Scanner sc = new Scanner(System.in);
+		String frase ="Nos veremos en el infierno";
+		System.out.println("Texto: "+frase);
+		String auxfrase = frase;
+		System.out.println("Introduzca el elemento que quiere buscar");
+		String cadena = sc.nextLine();
+		while (auxfrase.contains(cadena)){
+				System.out.println(frase.substring(frase.indexOf(cadena)));
+				
+				System.out.println("¿Quieres reemplazarla?");
+				String respuesta1 = sc.nextLine();
+				
+				if(respuesta1.equals("s")) {
+					System.out.println("¿Por qué elemento?");
+					String respuesta2 = sc.nextLine();
+					frase = frase.replaceFirst(cadena, respuesta2);
+					}
+				
+				
+				System.out.println("¿Siguiente ocurrencia?");
+				String respuesta3 = sc.nextLine();
+				if(respuesta3.equals("s")) {
+					auxfrase = frase.substring(frase.indexOf(cadena)+1);
+					} else {break;}
+		}
+		System.out.println("Fin de búsqueda de coincidencias");
+		System.out.println("Resultado final: " +  frase);
+		sc.close();
+	}
+	
 	public static void apartado2() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Escriba un número: ");
@@ -452,63 +508,117 @@ public class Ejercicios2 {
 		sc.close();
 	}
 	
-	public static void apartado280() {
+	public static void apartado28() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Dime la altura de la pirámide: ");
 		int high = sc.nextInt();
+		int n1 = high;
+		int n2 = high;
 		
 		for(int i = 1; i <= high; i++) {
 			
 			for(int j = 1; j <= (2*high -1); j++) {
 			
-				if(i==high || j==high ) {
+				if( j>=n1 && j<=n2 ) {
 					System.out.print("*");
 				} else {System.out.print(" ");}
-				
 			}
 			System.out.println();
+			n1--;
+			n2++;
 		}
 		sc.close();
 	}
 	
-	public static void apartado28() {
+	public static void apartado29() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Dime altura pir�mide: ");
-		int alto = sc.nextInt();
-		int astStart = alto;
-		int astEnd = alto;
+		System.out.print("Dime la altura de la pirámide: ");
+		int high = sc.nextInt();
+		int n1 = high;
+		int n2 = high;
 		
-		for(int fila = 1; fila <= alto; fila++) {
-			for(int col = 1; col <= alto * 2 - 1; col++) {
-				if(col >= astStart && col <= astEnd) {
+		for(int i = 1; i <= high; i++) {
+			
+			for(int j = 1; j <= (2*high -1); j++) {
+			
+				if( j==n1 || j==n2 || i==high) {
 					System.out.print("*");
-				} else {
-					System.out.print(" ");
-				}
+				} else {System.out.print(" ");}
 			}
 			System.out.println();
-			astStart--;
-			astEnd++;
+			n1--;
+			n2++;
+		}
+		sc.close();
+	}
+
+	public static void apartado30() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Dime la altura de la pirámide: ");
+		int high = sc.nextInt();
+		int n1 = 1;
+		int n2 = 2*high-1;
+		
+		for(int i = 1; i <= high; i++) {
+			
+			for(int j = 1; j <= (2*high -1); j++) {
+			
+				if(j>=n1 && j<=n2) {
+					System.out.print("*");
+				} else {System.out.print(" ");}
+			}
+			System.out.println();
+			n1++;
+			n2--;
+		}
+		sc.close();
+	}
+	
+	public static void apartado31() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Dime la base del rombo: ");
+		int base;
+		do {
+			base = Integer.parseInt(sc.nextLine());
+			if(base % 2 == 0) System.out.println("Introduce otro número: ");
+			} while (base % 2==0);
+		
+		int high = (base+1)/2;
+		int n1 = high;
+		int n2 = high;
+		
+		for(int i = 1; i <= high; i++) {
+			
+			for(int j = 1; j <= (2*high -1); j++) {
+			
+				if( j>=n1 && j<=n2 ) {
+					System.out.print("*");
+				} else {System.out.print(" ");}
+			}
+			System.out.println();
+			n1--;
+			n2++;
+		}
+		
+		n1 = 2;
+		n2 = 2*high-2;
+		
+		for(int i = 1; i <= high; i++) {
+			
+			for(int j = 1; j <= (2*high -1); j++) {
+			
+				if(j>=n1 && j<=n2) {
+					System.out.print("*");
+				} else {System.out.print(" ");}
+			}
+			System.out.println();
+			n1++;
+			n2--;
 		}
 		sc.close();
 		
-//		int numAst = 1;
-//		int numEsp = alto - 1;
-		
-//		for(int fila = 1; fila <= alto; fila++) {
-//			for(int col = 1; col <= numEsp; col++) {
-//				System.out.print(" ");
-//			}
-//			for(int col = 1; col <= numAst; col++) {
-//				System.out.print("*");
-//			}
-//			System.out.println();
-//			
-//			numEsp--;
-//			numAst += 2;
-//		}
 	}
-
+	
 	public static void main(String[] args) throws IOException {
 //		apartado2();
 //		apartado3();
@@ -537,7 +647,9 @@ public class Ejercicios2 {
 //		apartado26();
 //		apartado27();
 //		apartado28();
-		apartado280();
+//		apartado29();
+//		apartado30();
+//		apartado31();
 	}
 
 }

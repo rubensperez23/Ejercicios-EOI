@@ -3,6 +3,32 @@ import java.util.Scanner;
 
 public class Ejercicios3 {
 	
+	public static void apartado0() {
+		int table [][] = {{5,7,9},{10,3,2},{7,6,6}};/*
+		int notas;
+		double media;
+		for(int i=0;i<table.length;i++) {
+			notas=0;
+			media=0;
+			
+			for(int j=0;j<table[i].length;j++) {
+				notas += table[i][j] ;
+				
+				
+			}
+			media = (double) notas/table[0].length;
+			System.out.printf("La media del alumno %d es %.2f\n",i+1,media);
+		}*/
+		for(int[] alumno:table) {
+			int suma = 0;
+			for(int nota:alumno) {
+				suma += nota;
+			}
+			System.out.println("Media: "+((double)suma/alumno.length));
+		}
+		
+	}
+	
 	public static void apartado1() {
 		String[] meses = { "Enero", "Febrero", "Marzo" , "Abril", "Mayo", "Junio", 
 				"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
@@ -257,6 +283,7 @@ public class Ejercicios3 {
 	}
 	
 	public static void main(String[] args) {
+//		apartado0();
 //		apartado1();
 //		apartado1();
 //		apartado2();
