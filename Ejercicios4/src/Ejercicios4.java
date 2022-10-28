@@ -1,26 +1,37 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Ejercicios4 {
 
-	public static void apartado2(String cadena, int min, int max) {
-		if(cadena.length() >= min && cadena.length() <= max) {
-			System.out.println("La cadena " + cadena + " est� entre " + min + " y " + max + " caracteres");
-		} else {
-			System.out.println("ERROR: La cadena se sale de rango");
-		}
+
+	/**
+		 * Función que dibuja en una línea n asteriscos
+		 * @param n Número entero de asteriscos deseados
+		 */
+	public static void apartado1(String character,int n) {
+		
+		System.out.println(character.repeat(n));
+	}
+	
+	public static void apartado2(String cadena, int n1, int n2) {
+		if(cadena.length() <= Integer.max(n1, n2) && cadena.length() >= Integer.min(n1, n2)) {
+			System.out.println("La longitud de la cadena se encuentra entre los límites introducidos");
+		} else {System.out.println("La longitud de la cadena no se encuentra entre los límites introducidos");}
 	}
 	
 	public static void apartado3(char c, int lado) {
-		for(int fila = 0; fila < lado; fila++) {
-			for(int col = 0; col < lado; col++) {
-				System.out.print(c);
-			}
-			System.out.println();
+		String ch = c +" ";
+		for(int fila = 1; fila <= lado; fila++) {
+			if(fila==1 || fila==lado) {
+				System.out.println(ch.repeat(lado));
+			} else {System.out.println(ch + "  ".repeat(lado-2)+ ch);}
 		}
+		System.out.println();
+	
 	}
 	
 	public static void apartado4(String nombre, String ...trabajos) {
@@ -36,10 +47,11 @@ public class Ejercicios4 {
 		
 		for(int i = 2; i <= num / 2 && primo; i++) {
 			if(num % i == 0) {
+				System.out.println("El número introducido no es primo");
 				primo = false;
 			}
 		}
-		
+		System.out.println("El número introducido es primo");
 		return primo;
 	}
 	
@@ -84,6 +96,11 @@ public class Ejercicios4 {
 		return total / numsStr.length;
 	}
 	
+	public static String[] apartado12(String[] cadenas) {
+		Arrays.parallelSort(cadenas, (c1, c2) -> c2.compareTo(c1));
+		return cadenas;
+	}
+	
 	public static void apartado15(String fechaStr) {
 //		int dia = Integer.parseInt(fechaStr.substring(0, 2));
 //		int mes = Integer.parseInt(fechaStr.substring(3, 5));
@@ -96,28 +113,23 @@ public class Ejercicios4 {
 		System.out.println(fecha2.format(DateTimeFormatter.ofPattern("dd/MM/y")));
 	}
 	
-	public static String[] apartado12(String[] cadenas) {
-		Arrays.parallelSort(cadenas, (c1, c2) -> c2.compareTo(c1));
-		return cadenas;
-	}
-	
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
 		
+//		apartado1("e",5);
+
 //		apartado2("cocina", 3, 8);
-//		apartado2("cocina", 8, 15);
 		
-//		apartado3('g', 5);
-//		apartado3('+', 7);
-		
+//		apartado3('X', 10);
+
 //		apartado4("Pepe");
-//		apartado4("Juan", "Alba�il", "Panadero", "Astronauta");
+//		apartado4("Juan", "Alba�il", "Panadero", "Astronauta");
 		
 //		System.out.println("17 es primo?: " + apartado5(17));
 //		System.out.println("25 es primo?: " + apartado5(25));
 		
 //		int[] numeros = {4, 5, 12, 9, 21, 6};
-//		System.out.println("Media: " + apartado6(numeros));�
+//		System.out.println("Media: " + apartado6(numeros));�
 		
 //		String[] palabras = {"casa", "gato", "mano", "cara", "silla"};
 //		String palabraAdivinar = apartado7(palabras);
@@ -151,7 +163,8 @@ public class Ejercicios4 {
 //		String[] palabrasOrdenadas = apartado12(palabras2);
 //		System.out.println(String.join(", ", palabrasOrdenadas));
 		
-		apartado15("03-06-2020");
+//		apartado15("03-06-2020");
+//		sc.close();
 	}
 
 }

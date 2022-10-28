@@ -1,0 +1,7 @@
+gato
+perro
+reloj
+torpedo
+petardo
+submarino
+ballena

@@ -42,7 +42,33 @@ public class Ejercicios3 {
 	}
 	
 	public static void apartado2() {
-		int[] numeros = new int[5];
+		
+		Scanner sc = new Scanner(System.in);
+		int x [] = new int [10];
+		System.out.println("Introduce 10 números: ");
+		
+		for(int i = 0; i < x.length;i++) {
+			x[i] = sc.nextInt();
+		}
+		System.out.println("Lista de números introducidos");
+		Arrays.stream(x).forEach(n->System.out.print(n + " "));
+		
+		System.out.println("Suma de números introducidos: " + Arrays.stream(x).sum());
+		
+		System.out.println("Media de números introducidos: " + Arrays.stream(x).average());
+		
+		int max= x[0];
+		int min = x[0];
+		for(int num:x) {
+			max = (max>=num) ? max : num;
+			min = (min<=num) ? min : num;
+		}
+		
+		System.out.printf("Máximo número introducido: %d \nMínimo número introducido: %d",max,min);
+		sc.close();
+		
+		
+		/*int[] numeros = new int[5];
 		int total = 0;
 		
 		Scanner sc = new Scanner(System.in);
@@ -67,6 +93,8 @@ public class Ejercicios3 {
 		System.out.println("Media de los n�meros: " + total / (double)numeros.length);
 		System.out.println("Mayor: " + mayor);
 		System.out.println("Menor: " + menor);
+		
+		sc.close();*/
 	}
 	
 	public static void apartado4() {
@@ -87,6 +115,7 @@ public class Ejercicios3 {
 		total += dia;
 		
 		System.out.println("Total del d�as del a�o: " + total);
+		sc.close();
 	}
 	
 	public static void apartado5() {
@@ -106,6 +135,7 @@ public class Ejercicios3 {
 		for(int i = 0; i < cantidad; i++) {
 			System.out.printf("%15s: %5.2f\n", nombres[i], notas[i]);
 		}
+		sc.close();
 	}
 	
 	public static void apartado7() {
@@ -170,6 +200,7 @@ public class Ejercicios3 {
 		}
 			
 		System.out.println(Arrays.toString(nombres));
+		sc.close();
 	}
 	
 	public static void apartado9() {
@@ -193,6 +224,7 @@ public class Ejercicios3 {
 					System.out.print(letra + " ");
 			}
 		}
+		sc.close();
 	}
 	
 	public static void apartado10() {
@@ -263,6 +295,7 @@ public class Ejercicios3 {
 			double media = (double)total / notas[i].length;
 			System.out.printf("Nombre: %s, media: %.2f\n", nombres[i], media);
 		}
+		sc.close();
 	}
 	
 	public static void apartado13() {
@@ -283,6 +316,7 @@ public class Ejercicios3 {
 	}
 	
 	public static void main(String[] args) {
+		
 //		apartado0();
 //		apartado1();
 //		apartado1();

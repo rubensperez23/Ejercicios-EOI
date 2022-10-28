@@ -1,0 +1,4 @@
+Portátil Asus;600
+Teclado mecánico;45.50
+Ratón barato;5.25
+Monitor 4K IPS;250.0
